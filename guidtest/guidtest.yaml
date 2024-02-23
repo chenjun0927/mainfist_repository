@@ -1,0 +1,20 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: devopstest
+spec:
+  replicas: 1
+  revisionHistoryLimit: 3
+  selector:
+    matchLabels:
+      app: devopstest
+  template:
+    metadata:
+      labels:
+        app: devopstest
+    spec:
+      containers:
+        - image: junkmen0927/devopstest:9
+          name: devopstest
+          ports:
+            - containerPort: 9000
